@@ -39,7 +39,7 @@ function Navbar({ units, onChange }: { units: Units; onChange: (u: Units) => voi
                 </button>
 
                 {unitsMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-72 bg-[#0a0a33] border border-gray-600 rounded-xl p-3 shadow-xl">
+                    <div className="absolute right-0 mt-2 w-72 bg-[#0a0a33] border border-gray-600 rounded-xl p-3 shadow-xl z-40">
                         {/* Quick switch */}
                         <button
                             onClick={isImperial ? switchToMetric : switchToImperial}
