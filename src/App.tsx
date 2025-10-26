@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <section className="bg-[#0a0a33] w-full h-full pb-10 min-h-screen">
+<section className="bg-[#0a0a33] min-h-dvh w-full flex flex-col items-center justify-start pb-10">
       <div className="max-w-7xl mx-auto px-4">
         <Navbar units={units} onChange={handleUnitsChange} />
         <h1 className="text-center text-4xl md:text-5xl lg:text-6xl mt-4 md:mt-6 text-white font-bricolage-grotesque font-bold">How's the sky looking today?</h1>

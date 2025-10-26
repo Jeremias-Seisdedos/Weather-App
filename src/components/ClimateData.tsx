@@ -1,9 +1,7 @@
 import type { Props, Units } from "../utils/Props"
 import { roundPrecip, roundTemp, roundWind, toPrecip, toTemp, toWind, precipSuffix, windSuffix } from "../utils/units"
 
-
 function DataWeather({ weather, loading, units }: Props & { units?: Units }) {
-
 
     let humidity: number | string = "-"
     let feelsLike: number | string = "-"
@@ -41,37 +39,37 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
     return (
         <>
             {loading ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2.5 m-3">
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x md: mb-3 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Feels like</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">-</p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 m-3">
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x md:mb-3">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Feels like</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">-</p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 md: mb-3 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Humidity</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans ">-</p>
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2 md:mb-3">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Humidity</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">-</p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 md: mb-3 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Wind</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">-</p>
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2 md:mb-3">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Wind</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">-</p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 md: mb-3 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl pr-2 ">Precipitation</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">-</p>
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2 md:mb-3">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl pr-2">Precipitation</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">-</p>
                     </div>
                 </div>
             ) : weather ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2.5 m-3">
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Feels like</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">{feelsLike}° </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 m-3">
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Feels like</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">{feelsLike}°</p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Humidity</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans ">{humidity}%</p>
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Humidity</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">{humidity}%</p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl ">Wind</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Wind</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">
                             {(() => {
                                 const w = weather?.current_weather?.windspeed
                                 if (w === undefined) return "—"
@@ -81,9 +79,9 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
                             })()}
                         </p>
                     </div>
-                    <div className="bg-[#3a3a5c] p-5 rounded-2xl border-gray-500 border-x-2 ">
-                        <h4 className="text-gray-300  font-dm-sans mb-7 text-2xl pr-2 ">Precipitation</h4>
-                        <p className="text-4xl text-gray-200 font-dm-sans">
+                    <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x-2">
+                        <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl pr-2">Precipitation</h4>
+                        <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">
                             {(() => {
                                 const suffix = units ? precipSuffix(units.precip) : 'mm'
                                 if (precipitation === '-') return '-'
@@ -95,7 +93,6 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
             ) : null}
         </>
     )
-
 }
 
 export default DataWeather;
