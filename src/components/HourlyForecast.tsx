@@ -27,7 +27,7 @@ function HourlyForecast({ weather, loading, units }: Props & { units?: Units }) 
 
     if (loading) {
         return (
-            <section className="bg-[#3a3a5c] rounded-3xl p-4  m-4 md:m-0 md:w-[22rem] lg:w-[24rem]">
+            <section className="bg-[#3a3a5c] rounded-3xl p-4 w-full xl:w-[22rem] 2xl:w-[24rem]">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-gray-300 font-dm-sans text-2xl font-semibold">Hourly forecast</h3>
                     <div className="w-24 h-8 bg-[#505079] rounded-md" />
@@ -46,7 +46,7 @@ function HourlyForecast({ weather, loading, units }: Props & { units?: Units }) 
     }
 
     return weather ? (
-        <section className="bg-[#3a3a5c] rounded-3xl p-4  m-4 md:m-0 md:w-[22rem] lg:w-[24rem]">
+        <section className="bg-[#3a3a5c] rounded-3xl p-4 w-full xl:w-[22rem] 2xl:w-[24rem]">
             <div className="flex justify-between items-center mb-4">
                 <h3 className="text-gray-300 font-dm-sans text-2xl font-semibold">
                     Hourly forecast
@@ -81,14 +81,7 @@ function HourlyForecast({ weather, loading, units }: Props & { units?: Units }) 
             </div>
 
             <div className="flex flex-col gap-3">
-                {loading
-                    ? Array.from({ length: 8 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className="bg-[#505079] h-14 rounded-2xl border border-gray-500 animate-pulse"
-                        />
-                    ))
-                    : hoursForSelectedDay.map((hourTime, i) => 
+                {hoursForSelectedDay.map((hourTime, i) => 
                     {
                         //  Encontrar el índice usando comparación de timestamps
                         const originalIndex = hours.findIndex(h => 

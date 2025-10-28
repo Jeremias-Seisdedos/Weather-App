@@ -25,10 +25,10 @@ function App() {
 
   const handleUnitsChange = (u: Units) => {
     setUnits(u)
-  { localStorage.setItem('units', JSON.stringify(u)) }  
+    localStorage.setItem('units', JSON.stringify(u))  
   }
 
-    useEffect(() => {
+  useEffect(() => {
     setLoading(true);
     getWeather({ name: "Berlin" }, {
       onSearch: (data) => {
@@ -38,20 +38,26 @@ function App() {
     });
   }, []);
 
-  return (
-<section className="bg-[#0a0a33] min-h-dvh w-full flex flex-col items-center justify-start pb-10">
-      <div className="max-w-7xl mx-auto px-4">
+return (
+    <section className="bg-[#0a0a33] min-h-dvh w-full flex flex-col items-center justify-start pb-10">
+      <div className="max-w-7xl w-full">
         <Navbar units={units} onChange={handleUnitsChange} />
-        <h1 className="text-center text-4xl md:text-5xl lg:text-6xl mt-4 md:mt-6 text-white font-bricolage-grotesque font-bold">How's the sky looking today?</h1>
-        <Search onSearch={setWeather} />
+        <h1 className="text-center text-4xl md:text-5xl lg:text-6xl mt-4 md:mt-6 text-white font-bricolage-grotesque font-bold px-4">How's the sky looking today?</h1>
+        <div className="px-4">
+          <Search onSearch={setWeather} />
+        </div>
 
-        <div className="md:grid md:grid-cols-[1fr_24rem] md:gap-6 md:items-start">
-          <div className="md:flex md:flex-col md:items-start">
+        
+        <div className="flex flex-col xl:grid xl:grid-cols-[1fr_24rem] xl:gap-6 xl:items-start px-4 md:px-6 lg:px-8">
+      
+          <div className="flex flex-col items-start order-1 w-full">
             <DataWeather weather={weather} loading={loading} units={units} />
             <ClimateData weather={weather} loading={loading} units={units} />
             <DailyForecast weather={weather} loading={loading} units={units} />
           </div>
-          <div className=" md:flex md:justify-center">
+          
+          
+          <div className="order-2 xl:order-2 xl:flex xl:justify-center w-full mt-8 md:mt-10 xl:mt-0">
             <HourlyForecast weather={weather} loading={loading} units={units} />
           </div>
         </div>

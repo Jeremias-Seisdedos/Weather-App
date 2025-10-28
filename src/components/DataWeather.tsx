@@ -28,33 +28,32 @@ function DataWeather({ weather, loading, units }: Props & { units?: Units }) {
     return (
         <>
             {loading ? (
-                <section className=" bg-[#3a3a5c] mx-3 rounded-2xl h-64 md:h-75 md:w-203 flex flex-col items-center justify-center">
-                    <div className="flex  space-x-2 mb-4">
+                <section className="bg-[#3a3a5c] rounded-2xl h-64 md:h-70 lg:h-75 w-full flex flex-col items-center justify-center">
+                    <div className="flex space-x-2 mb-4">
                         <span className="block w-3 h-3 bg-gray-300 rounded-full animate-bounce"></span>
                         <span className="block w-3 h-3 bg-gray-300 rounded-full animate-bounce"></span>
                         <span className="block w-3 h-3 bg-gray-300 rounded-full animate-bounce"></span>
                     </div>
                     <span className="text-2xl md:text-3xl text-gray-300 font-dm-sans tracking-wide animate-pulse">Loading...</span>
                 </section>
-        ) : weather ? (
-                    <section className="bg-[url('/images/bg-today-large.svg')] bg-center bg-no-repeat bg-cover mx-3 rounded-2xl h-64 md:h-75 md:w-203  flex  items-center justify-center md:justify-between p-6 md:p-8">
-                        <div className="md:flex md:items-center md:justify-between md:w-full">
-                            <div className="text-left">
-                                <h2 className="text-white font-semibold text-4xl md:text-5xl font-dm-sans">{city}</h2>
-                                <p className="text-xl text-center md:text-3xl font-semibold text-gray-300">{date}</p>
-                            </div>
-                            <div className="flex items-center ml-4">
-                                {icon && <img src={icon} alt="Weather Icon" className="h-20 w-20 md:h-32 md:w-32 mr-4" />}
-                                <p className="text-gray-200 font-semibold text-center text-7xl md:text-8xl ml-2 md:ml-4 flex font-dm-sans italic items-center">{temp !== undefined ? `${temp}°` : " "}</p>
-                            </div>
+            ) : weather ? (
+                <section className="bg-[url('/images/bg-today-large.svg')] bg-center bg-no-repeat bg-cover rounded-2xl h-64 md:h-70 lg:h-75 w-full flex items-center justify-center md:justify-between p-4 md:p-6 lg:p-8">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
+                        <div className="text-center md:text-left">
+                            <h2 className="text-white font-semibold text-3xl md:text-4xl lg:text-5xl font-dm-sans">{city}</h2>
+                            <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-300 mt-2">{date}</p>
                         </div>
-                    </section>
-            )
-                : (
-                        <p className="text-white font-dm-sans text-center   md:ml-45 md:w-full    text-3xl my-15 font-semibold">No search result found!</p>
-                )}
-            </>
-        )
+                        <div className="flex items-center justify-center md:justify-end gap-2 md:gap-4">
+                            {icon && <img src={icon} alt="Weather Icon" className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24" />}
+                            <p className="text-gray-200 font-semibold text-6xl md:text-7xl lg:text-8xl font-dm-sans italic">{temp !== undefined ? `${temp}°` : " "}</p>
+                        </div>
+                    </div>
+                </section>
+            ) : (
+                <p className="text-white font-dm-sans text-center text-2xl md:text-3xl my-8 md:my-12 font-semibold">No search result found!</p>
+            )}
+        </>
+    )
     }
 
 export default DataWeather;

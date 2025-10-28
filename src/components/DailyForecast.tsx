@@ -32,33 +32,31 @@ function DailyForecast({ weather, loading, units }: Props & { units?: Units }) {
     )
   }
 
-    return weather ? (
-        <section>
-            <h3 className="mb-7 pl-3 mt-6 font-dm-sans text-gray-300 text-2xl md:text-3xl font-semibold">Daily forecast</h3>
+   return weather ? (
+        <section className="w-full">
+            <h3 className="mb-7 mt-6 font-dm-sans text-gray-300 text-2xl md:text-3xl font-semibold w-full">Daily forecast</h3>
 
-            <div className="grid grid-cols-3 md:grid-cols-7 gap-3 md:gap-5 m-2 justify-items-center">
-                {
-                    (days.slice(0, 7).map((dayTime, i) => {
-                        const label = new Date(dayTime).toLocaleDateString('en-US', { weekday: 'short' }) 
-                        const iconCode = weather?.daily?.weathercode?.[i]
-                        const icon = iconCode !== undefined ? getWeatherIcon(iconCode) : null
-                        const minRaw = weather?.daily?.temperature_2m_min?.[i]
-                        const maxRaw = weather?.daily?.temperature_2m_max?.[i]
-                        const min = minRaw !== undefined && units ? roundTemp(toTemp(minRaw, units.temp)) : (minRaw ?? "-")
-                        const max = maxRaw !== undefined && units ? roundTemp(toTemp(maxRaw, units.temp)) : (maxRaw ?? "-")
+            <div className="grid grid-cols-3 md:grid-cols-7 gap-3 md:gap-5 w-full">
+                {days.slice(0, 7).map((dayTime, i) => {
+                    const label = new Date(dayTime).toLocaleDateString('en-US', { weekday: 'short' });
+                    const iconCode = weather?.daily?.weathercode?.[i];
+                    const icon = iconCode !== undefined ? getWeatherIcon(iconCode) : null;
+                    const minRaw = weather?.daily?.temperature_2m_min?.[i];
+                    const maxRaw = weather?.daily?.temperature_2m_max?.[i];
+                    const min = minRaw !== undefined && units ? roundTemp(toTemp(minRaw, units.temp)) : (minRaw ?? "-");
+                    const max = maxRaw !== undefined && units ? roundTemp(toTemp(maxRaw, units.temp)) : (maxRaw ?? "-");
 
-                         return (
-                            <div key={dayTime} className="bg-[#3a3a5c] h-40 w-full max-w-28 md:w-25 rounded-2xl border-gray-500 border-x mb-2 flex flex-col items-center justify-between p-3">
-                                <h4 className="text-gray-300 font-dm-sans text-lg sm:text-xl md:text-2xl text-center">{label}</h4>
-                                {icon && <img src={icon} alt="icon" className="h-10 w-10 sm:h-12 sm:w-12" />}
-                                <div className="w-full flex justify-between text-gray-200 font-dm-sans text-base sm:text-lg">
-                                    <span className="text-left"> {min !== "-" ? `${min}°` : "-"}</span>
-                                    <span className="text-right">{max !== "-" ? `${max}°` : "-"}</span>
-                                </div>
+                    return (
+                        <div key={dayTime} className="bg-[#3a3a5c] h-40 w-full rounded-2xl border border-gray-500 flex flex-col items-center justify-between p-3">
+                            <h4 className="text-gray-300 font-dm-sans text-lg sm:text-xl md:text-2xl text-center">{label}</h4>
+                            {icon && <img src={icon} alt="icon" className="h-10 w-10 sm:h-12 sm:w-12" />}
+                            <div className="w-full flex justify-between text-gray-200 font-dm-sans text-base sm:text-lg px-1">
+                                <span className="text-left">{min !== "-" ? `${min}°` : "-"}</span>
+                                <span className="text-right">{max !== "-" ? `${max}°` : "-"}</span>
                             </div>
-                        )
-                    }))
-                }
+                        </div>
+                    );
+                })}
             </div>
         </section>
     ) : null;

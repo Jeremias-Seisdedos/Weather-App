@@ -1,7 +1,7 @@
 import type { Props, Units } from "../utils/Props"
 import { roundPrecip, roundTemp, roundWind, toPrecip, toTemp, toWind, precipSuffix, windSuffix } from "../utils/units"
 
-function DataWeather({ weather, loading, units }: Props & { units?: Units }) {
+function ClimateData({ weather, loading, units }: Props & { units?: Units }) {
 
     let humidity: number | string = "-"
     let feelsLike: number | string = "-"
@@ -39,7 +39,7 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
     return (
         <>
             {loading ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 m-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 w-full">
                     <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x md:mb-3">
                         <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Feels like</h4>
                         <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">-</p>
@@ -58,7 +58,7 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
                     </div>
                 </div>
             ) : weather ? (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 m-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2.5 w-full">
                     <div className="bg-[#3a3a5c] p-4 md:p-5 rounded-2xl border-gray-500 border-x">
                         <h4 className="text-gray-300 font-dm-sans mb-4 md:mb-7 text-lg md:text-2xl">Feels like</h4>
                         <p className="text-2xl md:text-4xl text-gray-200 font-dm-sans">{feelsLike}°</p>
@@ -95,4 +95,4 @@ if (weather?.hourly?.time && weather.current_weather?.time) {
     )
 }
 
-export default DataWeather;
+export default ClimateData;

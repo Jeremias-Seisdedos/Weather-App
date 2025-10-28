@@ -1,8 +1,5 @@
 @import "tailwindcss";
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
+
 @font-face {
 	font-family: 'DM Sans';
 	src: url('/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.woff2') format('woff2');
